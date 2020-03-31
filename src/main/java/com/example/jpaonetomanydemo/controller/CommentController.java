@@ -1,6 +1,6 @@
-package com.example.jpaonetomanydemo.conteroller;
+package com.example.jpaonetomanydemo.controller;
 
-import com.example.jpaonetomanydemo.exception.ResourceNotFoundException;
+import com.example.jpaonetomanydemo.exception.*;
 import com.example.jpaonetomanydemo.model.Comment;
 import com.example.jpaonetomanydemo.repository.CommentRepository;
 import com.example.jpaonetomanydemo.repository.PostRepository;
@@ -47,7 +47,7 @@ public class CommentController {
         return commentRepository.findById(commentId).map(comment -> {
             comment.setText(commentRequest.getText());
             return commentRepository.save(comment);
-        }).orElseThrow(() -> new ResourceNotFoundException("CommentId " + commentId + "not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException ("CommentId " + commentId + "not found"));
     }
 
     @DeleteMapping("/posts/{postId}/comments/{commentId}")

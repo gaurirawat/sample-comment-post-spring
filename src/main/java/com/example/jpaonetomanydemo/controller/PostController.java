@@ -1,6 +1,6 @@
-package com.example.jpaonetomanydemo.conteroller;
+package com.example.jpaonetomanydemo.controller;
 
-import com.example.jpaonetomanydemo.exception.ResourceNotFoundException;
+import com.example.jpaonetomanydemo.exception.*;
 import com.example.jpaonetomanydemo.model.Post;
 import com.example.jpaonetomanydemo.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +45,7 @@ public class PostController {
             return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
+
+
 
 }
